@@ -54,6 +54,7 @@ public class GenerationUIHandler : MonoBehaviour
         GenerateInstant.interactable = false;
         GenerateStep.interactable = false;
 
+        // Function to check whether input values are set, with the option to specify whether the check is inclusive or exclusive
         checkIfInputIsSet = (string first, string second, bool inclusive) =>
         {
             if (inclusive)
@@ -77,6 +78,7 @@ public class GenerationUIHandler : MonoBehaviour
             
         };
 
+        // Function to check whether the input values are not negative or 0
         checkIfInputIsValid = (string width, string height) =>
         {
             // If the strings are not negative or 0, return true
@@ -96,7 +98,7 @@ public class GenerationUIHandler : MonoBehaviour
 
     private void ToggleGenerateButtonInteractability()
     {
-        
+        // Check whether input is set and the values are valid (not negative or 0)
         if (checkIfInputIsSet(Width.text, Height.text, true) && checkIfInputIsValid(Width.text, Height.text))
         {
             // Check if any advanced options have been set. If so, keep the GenerateInstant button disabled. Otherwise, activate it.
